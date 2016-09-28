@@ -46,31 +46,31 @@
   {% endfor %}
 {% endmacro %}
 
-######################
-Справочник API-методов
-######################
+#################
+API Specification
+#################
 
-:Версия: {{ swagger_data.info.version }}
+:Version: {{ swagger_data.info.version }}
 
-:Схемы:
+:Schemes:
 
   {% for scheme in swagger_data.schemes %}
   - {{ scheme }}
   {% endfor %}
 
-:Принимает:
+:Consumes:
 
   {% for consume in swagger_data.consumes %}
   - {{ consume }}
   {% endfor %}
 
-:Отдаёт:
+:Produces:
 
   {% for produce in swagger_data.produces %}
   - {{ produce }}
   {% endfor %}
 
-:Swagger file:
+:Swagger File:
 
   {% if swagger_file %}
   :download:`swagger.json <{{ swagger_file }}>`
@@ -78,9 +78,9 @@
   `swagger.json <{{ swagger_uri }}>`__
   {% endif %}
 
-******
-Методы
-******
+*****
+Paths
+*****
 
 {% macro render_ref(ref) %}:term:`{{ ref.replace("#/definitions/", "") }}`{% endmacro %}
 
@@ -116,7 +116,7 @@
 
 
 ***********
-Определения
+Definitions
 ***********
 
 .. glossary::

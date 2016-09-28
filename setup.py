@@ -10,7 +10,7 @@ def readme():
 
 setup(
     name="sphinxcontrib-swagger2sphinx",
-    version="0.1.0",
+    version="0.1.1",
     url="https://bitbucket.org/moigagoo/sphinxcontrib-swagger2sphinx",
     download_url="https://pypi.org/project/sphinxcontrib-swagger2sphinx",
     license="MIT",
