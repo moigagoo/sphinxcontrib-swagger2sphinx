@@ -108,7 +108,11 @@ Paths
     {% endfor %}
 
     {% for response_code, response_data in method_data.responses | dictsort %}
-  :status {{ response_code }}: {{ response_data.description }}
+  :status {{ response_code }}:
+    {{ response_data.description }}
+      {% if "schema" in response_data %}
+    Response: {{ render_ref(response_data.schema["$ref"]) }}
+      {% endif %}
     {% endfor %}
 
   {% endfor %}
