@@ -1,4 +1,4 @@
-import json, requests
+import json, requests, jinja2
 
 class SwaggerFileNotFoundError(FileNotFoundError):
     pass
@@ -23,11 +23,13 @@ def get_swagger_data(swagger_location):
             )
 
 def rstjinja(app, docname, source):
-    source[0] = app.builder.templates.render_string(
-        source[0], get_swagger_data(app.config.swagger2sphinx_swagger_location)
-    )
+    swagger_data = get_swagger_data(app.config.swagger2sphinx_swagger_location)
+
+    template = jinja2.Template(source[0])
+
+    source[0] = template.render(swagger_data)
 
 def setup(app):
     app.add_config_value("swagger2sphinx_swagger_location", None, "")
     app.connect("source-read", rstjinja)
-    return {"version": "0.1.3"}
+    return {"version": "0.1.4"}
