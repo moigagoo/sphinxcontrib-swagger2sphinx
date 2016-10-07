@@ -32,4 +32,4 @@ def rstjinja(app, docname, source):
 def setup(app):
     app.add_config_value("swagger2sphinx_swagger_location", None, "")
     app.connect("source-read", rstjinja)
-    return {"version": "0.1.4"}
+    return {"version": "0.1.5"}
