@@ -51,7 +51,7 @@ Usage
         swagger2sphinx_swagger_location = "swagger.json"
         # swagger2sphinx_swagger_location = "http://example.com/swagger.json"
 
-.. _swagger-api.rst: https://bitbucket.org/moigagoo/sphinxcontrib-swagger2sphinx/src/default/swagger-api.rst
+.. _swagger-api.rst: https://github.com/moigagoo/sphinxcontrib-swagger2sphinx/blob/master/swagger-api.rst
 
 
 ************
