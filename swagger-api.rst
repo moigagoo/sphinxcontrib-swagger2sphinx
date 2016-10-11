@@ -46,29 +46,50 @@
   {% endfor %}
 {% endmacro %}
 
-#################
-API Specification
-#################
+
+#############################
+{{ swagger_data.info.title }}
+#############################
+
+{{ swagger_data.info.description }}
 
 :Version: {{ swagger_data.info.version }}
 
+{% if swagger_data.schemes | length > 1 %}
 :Schemes:
 
   {% for scheme in swagger_data.schemes %}
   - {{ scheme }}
   {% endfor %}
+{% elif swagger_data.schemes | length == 1 %}
+:Scheme:
 
+  {{ swagger_data.schemes[0] }}
+{% endif %}
+
+{% if swagger_data.consumes | length > 1 %}
 :Consumes:
 
   {% for consume in swagger_data.consumes %}
   - {{ consume }}
   {% endfor %}
+{% elif swagger_data.consumes | length == 1 %}
+:Consumes:
 
+  {{ swagger_data.consumes[0] }}
+{% endif %}
+
+{% if swagger_data.produces | length > 1 %}
 :Produces:
 
   {% for produce in swagger_data.produces %}
   - {{ produce }}
   {% endfor %}
+{% elif swagger_data.produces | length == 1 %}
+:Produces:
+
+  {{ swagger_data.produces[0] }}
+{% endif %}
 
 :Swagger File:
 
@@ -77,6 +98,7 @@ API Specification
   {% elif swagger_uri %}
   `swagger.json <{{ swagger_uri }}>`__
   {% endif %}
+
 
 *****
 Paths
